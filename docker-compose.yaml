@@ -3,7 +3,7 @@ services:
   backend:
     build:
       args:
-      - NODE_ENV=development
+        - NODE_ENV=development
       context: backend
     command: npm run start-watch
     environment:
@@ -29,8 +29,8 @@ services:
     depends_on:
       - db
   db:
-    image: mysql:8.0.19
-    command: '--default-authentication-plugin=mysql_native_password'
+    image: mariadb
+    command: "--default-authentication-plugin=mysql_native_password"
     restart: always
     secrets:
       - db-password
